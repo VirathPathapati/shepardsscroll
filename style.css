@@ -1468,3 +1468,236 @@ footer {
 }
 
 --muted: #687078;
+
+/* =========================================================
+   CATEGORY PAGES
+   ========================================================= */
+
+.category-header {
+    padding: 95px 10% 70px;
+    border-bottom: 1px solid var(--line);
+    background: var(--paper-white);
+}
+
+.category-header .label {
+    margin-bottom: 22px;
+}
+
+.category-header h1 {
+    margin: 0;
+    color: var(--blue);
+    font-size: clamp(70px, 10vw, 140px);
+    line-height: 0.85;
+    letter-spacing: -7px;
+}
+
+.category-header p {
+    max-width: 620px;
+    margin: 30px 0 0;
+    color: var(--ink-soft);
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+/* CATEGORY STORY GRID */
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+    padding: 75px 10% 110px;
+}
+
+.category-card {
+    position: relative;
+    padding-bottom: 35px;
+    border-bottom: 1px solid var(--line);
+}
+
+.category-card:first-child {
+    grid-column: span 2;
+}
+
+
+/* IMAGE AREA */
+
+.category-image {
+    position: relative;
+    height: 330px;
+    margin-bottom: 25px;
+    overflow: hidden;
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue),
+            var(--blue-dark),
+            var(--aged)
+        );
+}
+
+.category-card:first-child .category-image {
+    height: 430px;
+}
+
+.category-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at 30% 30%,
+            rgba(255,255,255,0.12),
+            transparent 35%
+        );
+}
+
+.category-image span {
+    position: absolute;
+    z-index: 2;
+    top: 20px;
+    right: 22px;
+    color: rgba(255,255,255,0.7);
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+
+/* STORY META */
+
+.category-card .story-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    color: var(--muted);
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+
+/* TITLES */
+
+.category-card h2 {
+    max-width: 650px;
+    margin: 0 0 15px;
+    color: var(--blue);
+    font-size: clamp(30px, 4vw, 52px);
+    line-height: 0.98;
+    letter-spacing: -2px;
+}
+
+.category-card:not(:first-child) h2 {
+    font-size: clamp(27px, 3vw, 38px);
+}
+
+.category-card p {
+    max-width: 600px;
+    margin: 0 0 25px;
+    color: var(--ink-soft);
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+}
+
+.category-card a {
+    display: inline-block;
+    color: var(--blue);
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease;
+}
+
+.category-card a:hover {
+    color: var(--blue-dark);
+    transform: translateX(5px);
+}
+
+
+/* HOVER EFFECT */
+
+.category-image {
+    transition: transform 0.45s ease;
+}
+
+.category-card:hover .category-image {
+    transform: scale(1.015);
+}
+
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+    .category-header {
+        padding: 75px 8% 55px;
+    }
+
+    .category-header h1 {
+        font-size: clamp(65px, 13vw, 105px);
+        letter-spacing: -5px;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr 1fr;
+        padding: 60px 8% 85px;
+        gap: 30px;
+    }
+
+    .category-card:first-child {
+        grid-column: span 2;
+    }
+
+    .category-image,
+    .category-card:first-child .category-image {
+        height: 340px;
+    }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .category-header {
+        padding: 60px 7% 45px;
+    }
+
+    .category-header h1 {
+        font-size: 65px;
+        letter-spacing: -4px;
+    }
+
+    .category-header p {
+        font-size: 15px;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr;
+        padding: 50px 7% 70px;
+        gap: 50px;
+    }
+
+    .category-card:first-child {
+        grid-column: span 1;
+    }
+
+    .category-image,
+    .category-card:first-child .category-image {
+        height: 300px;
+    }
+
+    .category-card h2,
+    .category-card:not(:first-child) h2 {
+        font-size: 34px;
+    }
+
+}
