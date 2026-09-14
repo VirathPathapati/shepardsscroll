@@ -1,20 +1,26 @@
-/* =========================
+/* ==================================================
    SHEPHERD'S SCROLL
-   Main Stylesheet
-   ========================= */
+   The GSIS Student Journal
+   ================================================== */
 
 :root {
     --paper: #f7f5f0;
     --ink: #171717;
-    --muted: #666;
+    --muted: #6b6964;
     --line: #d8d5ce;
     --accent: #8b1e2d;
 }
 
-/* Reset */
+/* =========================
+   RESET
+   ========================= */
 
 * {
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -29,38 +35,91 @@ a {
     text-decoration: none;
 }
 
+
 /* =========================
-   HEADER
+   HEADER / MASTHEAD
    ========================= */
 
 header {
-    padding: 32px 7% 24px;
-    border-bottom: 1px solid var(--line);
+    padding: 28px 7% 0;
+    border-bottom: 1px solid var(--ink);
+}
+
+.masthead {
+    text-align: center;
+    padding: 10px 0 32px;
+}
+
+.masthead-top {
+    display: flex;
+    justify-content: space-between;
+    color: var(--muted);
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
 }
 
 .logo {
-    font-size: clamp(30px, 4vw, 48px);
+    margin-top: 22px;
+    font-size: clamp(42px, 7vw, 82px);
     font-weight: bold;
-    letter-spacing: -1.5px;
+    line-height: 0.9;
+    letter-spacing: -4px;
 }
+
+.tagline {
+    margin-top: 18px;
+    color: var(--muted);
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+
+/* =========================
+   NAVIGATION
+   ========================= */
 
 nav {
     display: flex;
-    gap: 28px;
-    margin-top: 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    min-height: 52px;
+    border-top: 1px solid var(--line);
     font-family: Arial, sans-serif;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: bold;
     letter-spacing: 1.5px;
 }
 
 nav a {
+    position: relative;
+    padding: 18px 0;
     transition: color 0.2s ease;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 11px;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.25s ease;
 }
 
 nav a:hover {
     color: var(--accent);
 }
+
+nav a:hover::after {
+    width: 100%;
+}
+
 
 /* =========================
    MAIN
@@ -72,12 +131,13 @@ main {
     margin: 0 auto;
 }
 
+
 /* =========================
    FEATURED STORY
    ========================= */
 
 .featured {
-    padding: 90px 0 85px;
+    padding: 95px 0 90px;
     border-bottom: 1px solid var(--line);
 }
 
@@ -92,7 +152,7 @@ main {
 
 h1 {
     max-width: 950px;
-    margin: 18px 0 24px;
+    margin: 18px 0 25px;
     font-size: clamp(48px, 7vw, 86px);
     line-height: 0.98;
     letter-spacing: -3px;
@@ -107,12 +167,13 @@ h1 {
     line-height: 1.7;
 }
 
+
 /* =========================
    SECTIONS
    ========================= */
 
 .section {
-    margin-top: 70px;
+    margin-top: 75px;
 }
 
 .section h2 {
@@ -122,6 +183,7 @@ h1 {
     font-size: 32px;
     letter-spacing: -1px;
 }
+
 
 /* =========================
    STORY GRID
@@ -134,8 +196,13 @@ h1 {
 }
 
 .story {
-    padding-bottom: 25px;
+    padding-bottom: 28px;
     border-bottom: 1px solid var(--line);
+    transition: transform 0.25s ease;
+}
+
+.story:hover {
+    transform: translateY(-4px);
 }
 
 .image {
@@ -144,8 +211,8 @@ h1 {
     background:
         linear-gradient(
             135deg,
-            #ddd8ce,
-            #c8c2b8
+            #dedbd4,
+            #c7c2b8
         );
 }
 
@@ -163,6 +230,7 @@ h1 {
     font-size: 14px;
     line-height: 1.6;
 }
+
 
 /* =========================
    FOOTER
@@ -185,6 +253,7 @@ footer p {
     font-size: 13px;
 }
 
+
 /* =========================
    MOBILE
    ========================= */
@@ -192,12 +261,32 @@ footer p {
 @media (max-width: 800px) {
 
     header {
-        padding: 25px 7% 20px;
+        padding: 22px 6% 0;
+    }
+
+    .masthead {
+        padding-bottom: 25px;
+    }
+
+    .masthead-top {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .logo {
+        font-size: 42px;
+        letter-spacing: -2px;
     }
 
     nav {
-        gap: 16px;
-        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 18px;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    nav a {
+        padding: 16px 0;
     }
 
     .featured {
