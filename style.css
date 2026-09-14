@@ -1,53 +1,31 @@
 /* =========================================================
    SHEPHERD'S SCROLL
-   THE GSIS STUDENT JOURNAL
-
-   VISUAL IDENTITY
-   Old Book • Parchment • Ink • Editorial Blue
-
-   Everything below is CSS.
-   No external images are required.
-   ========================================================= */
-
-
-/* =========================================================
-   01. COLOUR SYSTEM
+   BLUE / WHITE / GREY PARCHMENT EDITION
+   NO GRADIENTS
    ========================================================= */
 
 :root {
+    --paper: #f7f7f4;
+    --paper-white: #ffffff;
+    --paper-soft: #eeeeea;
 
-    /* Paper */
-    --parchment: #e9dfca;
-    --parchment-light: #f5edda;
-    --paper: #faf5e8;
-    --paper-white: #fffaf0;
+    --grey-edge: #c7c7c2;
+    --grey-dark: #8c8d8a;
+    --grey-line: #d4d5d1;
 
-    /* Aged paper */
-    --aged: #b89d75;
-    --aged-dark: #81694c;
-    --edge: #705a40;
+    --ink: #15191e;
+    --muted: #656b72;
 
-    /* Ink */
-    --ink: #18202a;
-    --ink-soft: #3f4850;
+    --blue: #17446f;
+    --blue-dark: #103454;
+    --blue-soft: #dce7f0;
 
-    /* Main editorial blue */
-    --blue: #173e68;
-    --blue-dark: #102d4d;
-    --blue-light: #557a9e;
-    --blue-pale: #d6e2ed;
-
-    /* Lines */
-    --line: #c8bba4;
-    --line-dark: #9f8d70;
-
-    /* Shadows */
-    --shadow: rgba(55, 39, 20, 0.18);
+    --shadow: rgba(30, 38, 45, 0.12);
 }
 
 
 /* =========================================================
-   02. GLOBAL RESET
+   RESET
    ========================================================= */
 
 * {
@@ -59,8 +37,9 @@ html {
 }
 
 body {
-
     margin: 0;
+
+    background: var(--grey-edge);
 
     color: var(--ink);
 
@@ -68,281 +47,129 @@ body {
         Georgia,
         "Times New Roman",
         serif;
-
-    /*
-       The outer background deliberately feels older
-       than the actual reading surface.
-    */
-
-    background:
-
-        radial-gradient(
-            ellipse at center,
-            #d9c9ad 0%,
-            #c7b28f 70%,
-            #a88d68 100%
-        );
-
-    min-height: 100vh;
 }
-
-
-/* =========================================================
-   03. PAGE PAPER
-   ========================================================= */
-
-body::before {
-
-    content: "";
-
-    position: fixed;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    z-index: 999;
-
-    opacity: 0.13;
-
-    /*
-       Fine paper fibre illusion.
-    */
-
-    background:
-
-        repeating-linear-gradient(
-            0deg,
-            transparent 0px,
-            rgba(60, 43, 24, 0.08) 1px,
-            transparent 2px,
-            transparent 5px
-        ),
-
-        repeating-linear-gradient(
-            90deg,
-            transparent 0px,
-            rgba(60, 43, 24, 0.05) 1px,
-            transparent 3px,
-            transparent 7px
-        );
-}
-
-
-/*
-   Every major page surface receives this
-   slightly imperfect paper treatment.
-*/
-
-header,
-main,
-footer {
-
-    position: relative;
-
-    background:
-
-        radial-gradient(
-            circle at 12% 18%,
-            rgba(150, 120, 80, 0.07),
-            transparent 24%
-        ),
-
-        radial-gradient(
-            circle at 82% 75%,
-            rgba(120, 90, 55, 0.05),
-            transparent 27%
-        ),
-
-        linear-gradient(
-            90deg,
-            rgba(120, 90, 55, 0.04),
-            transparent 8%,
-            transparent 92%,
-            rgba(120, 90, 55, 0.05)
-        ),
-
-        var(--paper);
-}
-
-
-/* =========================================================
-   04. LINKS
-   ========================================================= */
 
 a {
-
     color: inherit;
-
     text-decoration: none;
 }
 
 
 /* =========================================================
-   05. HEADER
+   PAGE
    ========================================================= */
 
 header {
+    margin: 0 3.5vw;
 
-    padding: 20px 6vw 0;
+    padding: 22px 6vw 0;
 
-    border-top: 10px solid var(--edge);
+    background: var(--paper-white);
 
-    border-bottom: 2px solid var(--blue);
+    border-bottom: 1px solid var(--ink);
 
     box-shadow:
-        0 5px 18px rgba(55, 39, 20, 0.14);
+        0 4px 18px var(--shadow);
+}
 
+main {
+    width: 88%;
+    max-width: 1380px;
+
+    margin: 0 auto;
+
+    background: var(--paper-white);
+
+    box-shadow:
+        0 0 30px var(--shadow);
 }
 
 
 /* =========================================================
-   06. TOP INFORMATION BAR
+   TOP LINE
    ========================================================= */
 
 .topline {
-
     display: flex;
-
     justify-content: space-between;
 
     padding-bottom: 15px;
 
-    color: var(--aged-dark);
+    color: var(--grey-dark);
 
-    font-family:
-        Arial,
-        sans-serif;
+    font-family: Arial, sans-serif;
 
     font-size: 9px;
-
     font-weight: bold;
 
     letter-spacing: 2px;
 
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid var(--grey-line);
 }
 
 
 /* =========================================================
-   07. MASTHEAD
+   MASTHEAD
    ========================================================= */
 
 .masthead {
-
     position: relative;
 
-    padding: 48px 0 42px;
+    padding: 42px 0 38px;
 
     text-align: center;
 }
 
-
-/* Volume information */
-
 .edition {
-
     position: absolute;
 
     left: 0;
-
-    top: 55px;
+    top: 48px;
 
     color: var(--blue);
 
-    font-family:
-        Arial,
-        sans-serif;
+    font-family: Arial, sans-serif;
 
     font-size: 9px;
-
     font-weight: bold;
 
     letter-spacing: 2px;
-
-    writing-mode: vertical-rl;
-
-    transform: rotate(180deg);
-
 }
 
-
-/* Main publication title */
-
 .logo {
-
     display: inline-block;
-
-    position: relative;
 
     color: var(--blue);
 
     font-size:
-        clamp(55px, 10vw, 128px);
+        clamp(55px, 10vw, 125px);
 
     font-weight: bold;
 
-    line-height: 0.75;
+    line-height: 0.78;
 
     letter-spacing: -7px;
 
     transition:
-        transform 0.3s ease,
-        opacity 0.3s ease;
-
+        opacity 0.25s ease;
 }
-
-
-/* Tiny underline beneath title */
-
-.logo::after {
-
-    content: "";
-
-    display: block;
-
-    width: 55%;
-
-    height: 2px;
-
-    margin: 25px auto 0;
-
-    background: var(--aged-dark);
-}
-
-
-/* Second word */
 
 .logo span {
-
     color: var(--ink);
 }
 
-
-/* Hover */
-
 .logo:hover {
-
-    transform: translateY(-2px);
-
-    opacity: 0.82;
+    opacity: 0.72;
 }
 
-
-/* Publication tagline */
-
 .tagline {
-
     margin-top: 25px;
 
-    color: var(--aged-dark);
+    color: var(--muted);
 
-    font-family:
-        Arial,
-        sans-serif;
+    font-family: Arial, sans-serif;
 
     font-size: 10px;
-
     font-weight: bold;
 
     letter-spacing: 4px;
@@ -352,39 +179,31 @@ header {
 
 
 /* =========================================================
-   08. NAVIGATION
+   NAVIGATION
    ========================================================= */
 
 nav {
-
     display: flex;
 
     justify-content: center;
-
     align-items: center;
 
-    min-height: 56px;
+    min-height: 54px;
 
     gap:
-        clamp(14px, 3vw, 35px);
+        clamp(15px, 3vw, 34px);
 
-    border-top: 1px solid var(--line);
+    border-top: 1px solid var(--grey-line);
 
-    font-family:
-        Arial,
-        sans-serif;
+    font-family: Arial, sans-serif;
 
     font-size: 10px;
-
     font-weight: bold;
 
     letter-spacing: 1.5px;
-
 }
 
-
 nav a {
-
     position: relative;
 
     padding: 20px 0;
@@ -394,214 +213,123 @@ nav a {
         transform 0.25s ease;
 }
 
-
 nav a::after {
-
     content: "";
 
     position: absolute;
 
     left: 0;
-
-    bottom: 11px;
+    bottom: 12px;
 
     width: 0;
-
     height: 2px;
 
     background: var(--blue);
 
     transition:
-        width 0.3s ease;
+        width 0.25s ease;
 }
-
 
 nav a:hover {
-
     color: var(--blue);
 
-    transform: translateY(-1px);
+    transform:
+        translateY(-1px);
 }
 
-
 nav a:hover::after {
-
     width: 100%;
 }
 
-
 .submit-link {
-
     color: var(--blue);
 }
 
 
 /* =========================================================
-   09. MAIN PAGE
-   ========================================================= */
-
-main {
-
-    width: 88%;
-
-    max-width: 1400px;
-
-    margin: 0 auto;
-
-    box-shadow:
-        0 0 50px rgba(60, 43, 24, 0.08);
-}
-
-
-/* =========================================================
-   10. HERO
+   HERO
    ========================================================= */
 
 .hero {
-
     display: grid;
 
     grid-template-columns:
         1.2fr
         0.8fr;
 
-    min-height: 680px;
+    min-height: 650px;
 
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid var(--ink);
 }
 
 
 /* =========================================================
-   11. HERO IMAGE PANEL
+   HERO ART
    ========================================================= */
 
 .hero-image {
-
     position: relative;
 
-    min-height: 680px;
+    min-height: 650px;
 
     overflow: hidden;
 
-    /*
-       Fake aged illustration / ink wash.
-    */
-
-    background:
-
-        radial-gradient(
-            ellipse at 35% 30%,
-            rgba(255,255,255,0.2),
-            transparent 20%
-        ),
-
-        radial-gradient(
-            ellipse at 70% 70%,
-            rgba(10,30,50,0.4),
-            transparent 35%
-        ),
-
-        linear-gradient(
-            145deg,
-            #183b60,
-            #496e91 50%,
-            #9d8769
-        );
+    background: var(--blue);
 }
 
 
-/*
-   Paper fibres over hero.
-*/
+/* Simple editorial geometry */
 
 .hero-image::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: -30%;
-
-    background:
-
-        repeating-linear-gradient(
-            42deg,
-            transparent 0,
-            transparent 8px,
-            rgba(255,255,255,0.035) 9px,
-            transparent 10px
-        );
-
-    transform: rotate(-3deg);
-
-    opacity: 0.8;
-}
-
-
-/*
-   Decorative circular manuscript geometry.
-*/
-
-.hero-image::after {
-
     content: "";
 
     position: absolute;
 
     width: 520px;
-
     height: 520px;
 
-    border:
-
-        1px solid
-        rgba(255,255,255,0.2);
-
-    border-radius: 50%;
-
-    top: 50%;
-
     left: 50%;
+    top: 50%;
 
     transform:
         translate(-50%, -50%);
 
-    box-shadow:
+    border:
+        1px solid
+        rgba(255,255,255,0.22);
 
-        0 0 0 25px
-        rgba(255,255,255,0.025),
-
-        0 0 0 60px
-        rgba(255,255,255,0.015);
+    border-radius: 50%;
 }
 
+.hero-image::after {
+    content: "";
 
-/* Hero dark vignette */
+    position: absolute;
+
+    left: 9%;
+    right: 9%;
+
+    top: 9%;
+    bottom: 9%;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.14);
+}
 
 .image-overlay {
-
     position: absolute;
 
     inset: 0;
 
     background:
-
-        radial-gradient(
-            circle at center,
-            transparent 10%,
-            rgba(15,25,35,0.48) 100%
-        );
+        rgba(8, 29, 48, 0.18);
 }
 
-
-/* Large ghost typography */
-
 .hero-image-text {
-
     position: absolute;
 
     left: 50%;
-
     top: 50%;
 
     transform:
@@ -624,11 +352,10 @@ main {
 
 
 /* =========================================================
-   12. HERO CONTENT
+   HERO CONTENT
    ========================================================= */
 
 .hero-content {
-
     display: flex;
 
     flex-direction: column;
@@ -636,24 +363,16 @@ main {
     justify-content: center;
 
     padding:
-        75px 9%;
+        70px 8%;
 
-    background:
+    background: var(--paper-white);
 
-        radial-gradient(
-            circle at 80% 15%,
-            rgba(140,110,70,0.08),
-            transparent 30%
-        ),
-
-        var(--paper-white);
+    border-left:
+        1px solid var(--grey-line);
 }
 
-
 .hero-content h1 {
-
-    margin:
-        25px 0;
+    margin: 25px 0;
 
     color: var(--blue);
 
@@ -665,49 +384,40 @@ main {
     letter-spacing: -4px;
 }
 
-
 .hero-content h1 em {
-
-    color: var(--aged-dark);
+    color: var(--grey-dark);
 
     font-style: italic;
 
     font-weight: normal;
 }
 
-
 .hero-content p {
-
-    max-width: 480px;
+    max-width: 470px;
 
     margin:
         0 0 35px;
 
     color: var(--ink-soft);
 
-    font-family:
-        Arial,
-        sans-serif;
+    font-family: Arial, sans-serif;
 
     font-size: 15px;
 
-    line-height: 1.75;
+    line-height: 1.7;
 }
 
 
 /* =========================================================
-   13. LABELS
+   LABELS
    ========================================================= */
 
 .label {
-
     color: var(--blue);
 
-    font-family:
-        Arial,
-        sans-serif;
+    font-family: Arial, sans-serif;
 
-    font-size: 10px;
+    font-size: 11px;
 
     font-weight: bold;
 
@@ -716,19 +426,16 @@ main {
     text-transform: uppercase;
 }
 
-
 .green {
-
-    color: var(--aged-dark);
+    color: var(--grey-dark);
 }
 
 
 /* =========================================================
-   14. BYLINE
+   BYLINE
    ========================================================= */
 
 .byline {
-
     display: flex;
 
     justify-content: space-between;
@@ -737,16 +444,14 @@ main {
         17px 0;
 
     border-top:
-        1px solid var(--line);
+        1px solid var(--grey-line);
 
     border-bottom:
-        1px solid var(--line);
+        1px solid var(--grey-line);
 
     color: var(--muted);
 
-    font-family:
-        Arial,
-        sans-serif;
+    font-family: Arial, sans-serif;
 
     font-size: 9px;
 
@@ -757,11 +462,10 @@ main {
 
 
 /* =========================================================
-   15. READ BUTTON
+   BUTTON
    ========================================================= */
 
 .read-story {
-
     display: inline-flex;
 
     align-items: center;
@@ -773,15 +477,13 @@ main {
     margin-top: 25px;
 
     padding:
-        18px 21px;
+        17px 20px;
 
     background: var(--blue);
 
     color: white;
 
-    font-family:
-        Arial,
-        sans-serif;
+    font-family: Arial, sans-serif;
 
     font-size: 10px;
 
@@ -789,42 +491,28 @@ main {
 
     letter-spacing: 2px;
 
-    box-shadow:
-        4px 4px 0
-        var(--aged);
-
     transition:
         background 0.25s ease,
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+        transform 0.25s ease;
 }
 
-
 .read-story:hover {
-
     background: var(--blue-dark);
 
     transform:
-        translate(-2px, -2px);
-
-    box-shadow:
-        7px 7px 0
-        var(--aged);
+        translateY(-3px);
 }
 
-
 .read-story span {
-
     font-size: 18px;
 }
 
 
 /* =========================================================
-   16. EDITOR NOTE
+   EDITOR'S NOTE
    ========================================================= */
 
 .editor-note {
-
     display: grid;
 
     grid-template-columns:
@@ -835,28 +523,18 @@ main {
     gap: 45px;
 
     padding:
-        100px 0;
+        90px 0;
 
     border-bottom:
-        1px solid var(--line);
+        1px solid var(--grey-line);
 
-    background:
-
-        radial-gradient(
-            circle at 20% 50%,
-            rgba(130,100,65,0.08),
-            transparent 30%
-        );
+    background: var(--paper);
 }
 
-
 .section-number {
+    color: var(--grey-dark);
 
-    color: var(--aged-dark);
-
-    font-family:
-        Arial,
-        sans-serif;
+    font-family: Arial, sans-serif;
 
     font-size: 11px;
 
@@ -865,9 +543,7 @@ main {
     letter-spacing: 2px;
 }
 
-
 .editor-note h2 {
-
     margin:
         18px 0 0;
 
@@ -881,20 +557,16 @@ main {
     letter-spacing: -3px;
 }
 
-
 .editor-note p {
-
     align-self: end;
 
     max-width: 500px;
 
     margin: 0;
 
-    color: var(--ink-soft);
+    color: var(--muted);
 
-    font-family:
-        Arial,
-        sans-serif;
+    font-family: Arial, sans-serif;
 
     font-size: 15px;
 
@@ -903,18 +575,15 @@ main {
 
 
 /* =========================================================
-   17. STORY SECTION
+   STORIES
    ========================================================= */
 
 .stories-section {
-
     padding:
-        100px 0;
+        95px 0;
 }
 
-
 .section-heading {
-
     display: flex;
 
     justify-content: space-between;
@@ -924,12 +593,10 @@ main {
     padding-bottom: 25px;
 
     border-bottom:
-        3px double var(--line-dark);
+        2px solid var(--ink);
 }
 
-
 .section-heading h2 {
-
     margin:
         12px 0 0;
 
@@ -943,16 +610,12 @@ main {
     letter-spacing: -3px;
 }
 
-
 .view-all {
-
     padding-bottom: 7px;
 
     color: var(--blue);
 
-    font-family:
-        Arial,
-        sans-serif;
+    font-family: Arial, sans-serif;
 
     font-size: 10px;
 
@@ -963,11 +626,10 @@ main {
 
 
 /* =========================================================
-   18. STORY GRID
+   STORY GRID
    ========================================================= */
 
 .stories-grid {
-
     display: grid;
 
     grid-template-columns:
@@ -980,27 +642,22 @@ main {
     padding-top: 35px;
 }
 
-
 .story-card {
-
     transition:
         transform 0.3s ease;
 }
 
-
 .story-card:hover {
-
     transform:
         translateY(-7px);
 }
 
 
 /* =========================================================
-   19. STORY IMAGES
+   STORY VISUALS
    ========================================================= */
 
 .story-image {
-
     position: relative;
 
     height: 260px;
@@ -1010,111 +667,67 @@ main {
     overflow: hidden;
 
     filter:
-        saturate(0.7)
-        contrast(0.95);
+        saturate(0.78);
 }
 
-
-.story-card.large
-.story-image {
-
+.story-card.large .story-image {
     height: 380px;
 }
 
-
-/*
-   Blue ink wash
-*/
-
 .story-image::before {
-
     content: "";
 
     position: absolute;
 
     inset: 0;
 
-    background:
-
-        radial-gradient(
-            circle at 30% 30%,
-            rgba(255,255,255,0.16),
-            transparent 25%
-        ),
-
-        linear-gradient(
-            135deg,
-            var(--blue),
-            var(--blue-light)
-        );
+    background: var(--blue);
 
     transition:
-        transform 0.7s ease;
+        transform 0.6s ease;
 }
-
 
 .story-card:nth-child(2)
 .story-image::before {
-
-    background:
-
-        radial-gradient(
-            circle at 70% 30%,
-            rgba(255,255,255,0.18),
-            transparent 25%
-        ),
-
-        linear-gradient(
-            135deg,
-            #355d80,
-            #7891a6
-        );
+    background: #557894;
 }
-
 
 .story-card:nth-child(3)
 .story-image::before {
-
-    background:
-
-        radial-gradient(
-            circle at 30% 70%,
-            rgba(255,255,255,0.16),
-            transparent 25%
-        ),
-
-        linear-gradient(
-            135deg,
-            #826d54,
-            #b09b7d
-        );
+    background: #858d92;
 }
-
 
 .story-card:hover
 .story-image::before {
-
     transform:
-        scale(1.09);
+        scale(1.08);
 }
 
 
-/* Story number */
+/* Fine border inside visual */
 
-.story-image span {
+.story-image::after {
+    content: "";
 
     position: absolute;
 
-    right: 18px;
+    inset: 15px;
 
+    border:
+        1px solid
+        rgba(255,255,255,0.2);
+}
+
+.story-image span {
+    position: absolute;
+
+    right: 18px;
     bottom: 15px;
 
     color:
         rgba(255,255,255,0.4);
 
-    font-family:
-        Arial,
-        sans-serif;
+    font-family: Arial, sans-serif;
 
     font-size: 45px;
 
@@ -1123,20 +736,17 @@ main {
 
 
 /* =========================================================
-   20. STORY TEXT
+   STORY TEXT
    ========================================================= */
 
 .story-meta {
-
     display: flex;
 
     justify-content: space-between;
 
     color: var(--muted);
 
-    font-family:
-        Arial,
-        sans-serif;
+    font-family: Arial, sans-serif;
 
     font-size: 9px;
 
@@ -1145,9 +755,7 @@ main {
     letter-spacing: 1.5px;
 }
 
-
 .story-card h3 {
-
     margin:
         15px 0 10px;
 
@@ -1161,16 +769,12 @@ main {
     letter-spacing: -1px;
 }
 
-
 .story-card p {
-
     margin: 0;
 
     color: var(--muted);
 
-    font-family:
-        Arial,
-        sans-serif;
+    font-family: Arial, sans-serif;
 
     font-size: 13px;
 
@@ -1179,33 +783,26 @@ main {
 
 
 /* =========================================================
-   21. STUDENT VOICES
+   STUDENT VOICES
    ========================================================= */
 
 .voices {
-
     display: grid;
 
     grid-template-columns:
         1fr
         1fr;
 
-    min-height: 520px;
+    min-height: 500px;
 
     margin-bottom: 100px;
 
     background: var(--blue);
 
     color: white;
-
-    box-shadow:
-        8px 8px 0
-        var(--aged);
 }
 
-
 .voices-heading {
-
     padding: 75px;
 
     display: flex;
@@ -1215,9 +812,7 @@ main {
     justify-content: center;
 }
 
-
 .voices-heading h2 {
-
     margin:
         20px 0 0;
 
@@ -1229,18 +824,13 @@ main {
     letter-spacing: -4px;
 }
 
-
 .voices-heading h2 em {
-
-    color:
-        var(--blue-pale);
+    color: var(--blue-soft);
 
     font-weight: normal;
 }
 
-
 .quote-card {
-
     display: flex;
 
     flex-direction: column;
@@ -1249,20 +839,10 @@ main {
 
     padding: 75px;
 
-    background:
-
-        radial-gradient(
-            circle at 70% 20%,
-            rgba(255,255,255,0.08),
-            transparent 25%
-        ),
-
-        var(--aged-dark);
+    background: #737b82;
 }
 
-
 .quote-mark {
-
     font-size: 100px;
 
     line-height: 0.5;
@@ -1270,9 +850,7 @@ main {
     opacity: 0.35;
 }
 
-
 .quote-card p {
-
     max-width: 520px;
 
     margin:
@@ -1286,12 +864,8 @@ main {
     letter-spacing: -1px;
 }
 
-
 .quote-author {
-
-    font-family:
-        Arial,
-        sans-serif;
+    font-family: Arial, sans-serif;
 
     font-size: 9px;
 
@@ -1302,27 +876,22 @@ main {
 
 
 /* =========================================================
-   22. EXPLORE
+   EXPLORE
    ========================================================= */
 
 .explore {
-
     padding:
-        20px 0 110px;
+        20px 0 100px;
 }
 
-
 .category-list {
-
     margin-top: 25px;
 
     border-top:
         1px solid var(--ink);
 }
 
-
 .category-list a {
-
     display: grid;
 
     grid-template-columns:
@@ -1333,10 +902,10 @@ main {
     align-items: center;
 
     padding:
-        25px 0;
+        23px 0;
 
     border-bottom:
-        1px solid var(--line);
+        1px solid var(--grey-line);
 
     color: var(--blue);
 
@@ -1347,39 +916,29 @@ main {
 
     transition:
         color 0.25s ease,
-        padding-left 0.3s ease;
+        padding-left 0.25s ease;
 }
-
 
 .category-list a:hover {
+    padding-left: 15px;
 
-    padding-left: 18px;
-
-    color: var(--aged-dark);
+    color: var(--grey-dark);
 }
 
-
 .category-list span {
-
     color: var(--muted);
 
-    font-family:
-        Arial,
-        sans-serif;
+    font-family: Arial, sans-serif;
 
     font-size: 9px;
 
     letter-spacing: 1px;
 }
 
-
 .category-list b {
-
     justify-self: end;
 
-    font-family:
-        Arial,
-        sans-serif;
+    font-family: Arial, sans-serif;
 
     font-size: 22px;
 
@@ -1388,11 +947,10 @@ main {
 
 
 /* =========================================================
-   23. SUBMISSION
+   SUBMISSION
    ========================================================= */
 
 .submission {
-
     display: grid;
 
     grid-template-columns:
@@ -1402,34 +960,21 @@ main {
     gap: 45px;
 
     padding:
-        105px 8%;
+        100px 8%;
 
-    background:
+    background: var(--paper-soft);
 
-        radial-gradient(
-            circle at 85% 20%,
-            rgba(130,100,65,0.12),
-            transparent 30%
-        ),
+    border-top:
+        1px solid var(--grey-line);
 
-        var(--parchment);
-
-    border:
-        1px solid var(--line);
-
-    box-shadow:
-        inset 0 0 60px
-        rgba(90,65,40,0.08);
+    border-bottom:
+        1px solid var(--grey-line);
 }
 
-
 .submission-number {
+    color: var(--grey-dark);
 
-    color: var(--aged-dark);
-
-    font-family:
-        Arial,
-        sans-serif;
+    font-family: Arial, sans-serif;
 
     font-size: 11px;
 
@@ -1438,9 +983,7 @@ main {
     letter-spacing: 2px;
 }
 
-
 .submission h2 {
-
     margin:
         18px 0;
 
@@ -1454,25 +997,19 @@ main {
     letter-spacing: -4px;
 }
 
-
 .submission p {
-
     max-width: 550px;
 
-    color: var(--ink-soft);
+    color: var(--muted);
 
-    font-family:
-        Arial,
-        sans-serif;
+    font-family: Arial, sans-serif;
 
     font-size: 14px;
 
     line-height: 1.7;
 }
 
-
 .submit-button {
-
     display: inline-block;
 
     margin-top: 20px;
@@ -1484,9 +1021,7 @@ main {
 
     color: white;
 
-    font-family:
-        Arial,
-        sans-serif;
+    font-family: Arial, sans-serif;
 
     font-size: 10px;
 
@@ -1494,55 +1029,40 @@ main {
 
     letter-spacing: 1.5px;
 
-    box-shadow:
-        4px 4px 0
-        var(--aged);
-
     transition:
         background 0.25s ease,
         transform 0.25s ease;
 }
 
-
 .submit-button:hover {
-
-    background:
-        var(--blue-dark);
+    background: var(--blue-dark);
 
     transform:
-        translate(-2px, -2px);
+        translateY(-3px);
 }
 
 
 /* =========================================================
-   24. FOOTER
+   FOOTER
    ========================================================= */
 
 footer {
+    margin-top: 3.5vw;
 
     padding:
-        90px 7% 35px;
+        80px 7% 35px;
 
     background:
-
-        radial-gradient(
-            circle at 70% 20%,
-            rgba(100,130,160,0.08),
-            transparent 25%
-        ),
-
-        #17212c;
+        #121d28;
 
     color: white;
 
     border-top:
-        10px solid
-        var(--aged-dark);
+        7px solid
+        var(--grey-dark);
 }
 
-
 .footer-logo {
-
     font-size:
         clamp(48px, 8vw, 100px);
 
@@ -1553,24 +1073,18 @@ footer {
     letter-spacing: -5px;
 }
 
-
 .footer-logo span {
-
     color:
-        #91a9bf;
+        #91aac1;
 }
 
-
 .footer-info {
-
     margin-top: 45px;
 
     color:
-        #aeb8c0;
+        #aab3bb;
 
-    font-family:
-        Arial,
-        sans-serif;
+    font-family: Arial, sans-serif;
 
     font-size: 10px;
 
@@ -1579,9 +1093,7 @@ footer {
     line-height: 1.8;
 }
 
-
 .footer-bottom {
-
     display: flex;
 
     justify-content: space-between;
@@ -1592,14 +1104,12 @@ footer {
 
     border-top:
         1px solid
-        #35414c;
+        #35404a;
 
     color:
-        #77838e;
+        #737e88;
 
-    font-family:
-        Arial,
-        sans-serif;
+    font-family: Arial, sans-serif;
 
     font-size: 8px;
 
@@ -1608,32 +1118,27 @@ footer {
 
 
 /* =========================================================
-   25. MOBILE
+   MOBILE
    ========================================================= */
 
 @media (max-width: 900px) {
 
     header {
+        margin: 0 2vw;
 
         padding:
             20px 6% 0;
     }
 
-
     .topline span:last-child {
-
         display: none;
     }
-
 
     .edition {
-
         display: none;
     }
 
-
     nav {
-
         justify-content: flex-start;
 
         overflow-x: auto;
@@ -1643,88 +1148,62 @@ footer {
         gap: 22px;
     }
 
-
     nav a {
-
         flex-shrink: 0;
     }
 
-
     .hero {
-
         grid-template-columns: 1fr;
     }
 
-
     .hero-image {
-
-        min-height: 430px;
+        min-height: 420px;
     }
-
 
     .hero-content {
-
         padding:
-            60px 8%;
+            55px 8%;
     }
 
-
     .editor-note {
-
         grid-template-columns:
             40px
             1fr;
     }
 
-
     .editor-note p {
-
         grid-column: 2;
     }
 
-
     .stories-grid {
-
         grid-template-columns: 1fr;
     }
 
-
-    .story-card.large
-    .story-image,
-
+    .story-card.large .story-image,
     .story-image {
-
         height: 300px;
     }
 
-
     .voices {
-
         grid-template-columns: 1fr;
     }
 
-
     .voices-heading,
     .quote-card {
-
         padding:
-            60px 8%;
+            55px 8%;
     }
 
-
     .submission {
-
         grid-template-columns:
             40px
             1fr;
 
         padding:
-            75px 8%;
+            70px 8%;
     }
 
-
     .footer-bottom {
-
         flex-direction: column;
 
         gap: 10px;
@@ -1732,69 +1211,46 @@ footer {
 }
 
 
-/* =========================================================
-   26. SMALL PHONES
-   ========================================================= */
-
 @media (max-width: 500px) {
 
     .logo {
-
         font-size: 48px;
 
         letter-spacing: -3px;
     }
 
-
     .tagline {
-
         font-size: 8px;
 
         letter-spacing: 2px;
     }
 
-
     .hero-image {
-
-        min-height: 340px;
+        min-height: 330px;
     }
 
-
     .hero-content h1 {
-
         font-size: 50px;
     }
 
-
     .byline {
-
         flex-direction: column;
 
         gap: 8px;
     }
 
-
     .section-heading {
-
-        align-items: flex-start;
+        align-items: start;
 
         flex-direction: column;
 
         gap: 20px;
     }
 
-
     .category-list a {
-
         grid-template-columns:
             40px
             1fr
             30px;
-    }
-
-
-    .voices-heading h2 {
-
-        font-size: 52px;
     }
 }
