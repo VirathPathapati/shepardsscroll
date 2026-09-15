@@ -1710,3 +1710,11 @@ footer {
 .story-card h3 a:hover {
     color: var(--blue-dark);
 }
+.category-card h2 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.category-card h2 a:hover {
+    color: var(--blue-dark);
+}
