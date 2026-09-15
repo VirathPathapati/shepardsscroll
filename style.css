@@ -1803,3 +1803,30 @@ footer {
     }
 
 }
+/* =========================================================
+   INLINE ARTICLE FIGURES
+   ========================================================= */
+
+.article-figure {
+    margin: 55px 0 50px;
+}
+
+.article-figure .article-image {
+    width: 100%;
+    display: block;
+    margin: 0 0 12px;
+}
+
+.article-figure .article-image-caption {
+    margin: 0;
+    color: var(--muted);
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    line-height: 1.5;
+    letter-spacing: 0.8px;
+}
+
+.article-figure .credit {
+    color: var(--aged-dark);
+    margin-left: 8px;
+}
