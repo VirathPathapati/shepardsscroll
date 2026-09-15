@@ -2194,3 +2194,32 @@ footer {
     }
 
 }
+/* =========================================================
+   EDITOR'S NOTE
+   ========================================================= */
+
+.editor-note-copy {
+    max-width: 720px;
+    margin-top: 35px;
+}
+
+.editor-note-copy p {
+    margin: 0 0 25px;
+    color: var(--ink-soft);
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.editor-note-copy p strong {
+    color: var(--blue);
+    font-weight: normal;
+}
+
+@media (max-width: 700px) {
+
+    .editor-note-copy p {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+}
