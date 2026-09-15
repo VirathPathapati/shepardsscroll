@@ -1830,3 +1830,192 @@ footer {
     color: var(--aged-dark);
     margin-left: 8px;
 }
+/* =========================================================
+   SUBMISSION PAGE
+   ========================================================= */
+
+.submit-page {
+    padding-bottom: 100px;
+}
+
+.submit-header {
+    padding: 100px 10% 75px;
+    border-bottom: 1px solid var(--line);
+    background: var(--paper-white);
+}
+
+.submit-header .label {
+    margin-bottom: 25px;
+}
+
+.submit-header h1 {
+    max-width: 1000px;
+    margin: 0;
+    color: var(--blue);
+    font-size: clamp(60px, 9vw, 125px);
+    line-height: 0.85;
+    letter-spacing: -6px;
+}
+
+.submit-header h1 em {
+    display: block;
+    color: var(--aged-dark);
+    font-weight: normal;
+}
+
+.submit-intro {
+    max-width: 680px;
+    margin: 40px 0 0;
+    color: var(--ink-soft);
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.submit-content {
+    width: min(1100px, 80%);
+    margin: 75px auto 0;
+}
+
+.submit-section {
+    margin-bottom: 90px;
+}
+
+.submit-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 30px;
+    border-top: 1px solid var(--line);
+}
+
+.submit-list > div {
+    padding: 28px 30px 28px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.submit-list strong {
+    color: var(--blue);
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+}
+
+.submit-list p {
+    max-width: 430px;
+    margin: 10px 0 0;
+    color: var(--ink-soft);
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.submit-process {
+    max-width: 850px;
+}
+
+.process-step {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    align-items: start;
+    padding: 25px 0;
+    border-top: 1px solid var(--line);
+}
+
+.process-step span {
+    color: var(--aged-dark);
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.process-step p {
+    margin: 0;
+    color: var(--ink);
+    font-size: 19px;
+    line-height: 1.5;
+}
+
+.submit-cta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    padding: 55px 0;
+    border-top: 3px double var(--line-dark);
+    border-bottom: 3px double var(--line-dark);
+}
+
+.submit-cta h2 {
+    margin: 15px 0 0;
+    color: var(--blue);
+    font-size: clamp(40px, 5vw, 65px);
+    line-height: 0.9;
+    letter-spacing: -3px;
+}
+
+.submit-cta h2 em {
+    display: block;
+    color: var(--aged-dark);
+    font-weight: normal;
+}
+
+.submit-button {
+    flex-shrink: 0;
+    padding: 18px 24px;
+    border: 1px solid var(--blue);
+    color: var(--blue);
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.submit-button span {
+    margin-left: 10px;
+}
+
+.submit-button:hover {
+    background: var(--blue);
+    color: var(--paper-white);
+    transform: translateY(-2px);
+}
+
+.editorial-note {
+    max-width: 700px;
+    margin: 30px 0 0;
+    color: var(--muted);
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+
+    .submit-header {
+        padding: 70px 8% 55px;
+    }
+
+    .submit-header h1 {
+        font-size: 60px;
+        letter-spacing: -4px;
+    }
+
+    .submit-content {
+        width: 84%;
+    }
+
+    .submit-list {
+        grid-template-columns: 1fr;
+    }
+
+    .submit-cta {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+}
